@@ -97,3 +97,19 @@ export async function updatePost(formData) {
     console.log(data);
     redirect(`/posts/${id}`);
 }
+
+export async function deletePost(id) {
+    "use server";
+
+    await connectToDB();
+
+    await Post.findByIdAndDelete(id);
+
+    const data = {
+        action: "deletePost",
+        success: true,
+        postId: id,
+    };
+    console.log(data);
+    redirect("/");
+}

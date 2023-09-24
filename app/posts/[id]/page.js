@@ -1,4 +1,5 @@
-import { getPost, getPostComments, setPostStatus } from "@actions/posts";
+import { deletePost, getPost, getPostComments, setPostStatus } from "@actions/posts";
+import DeletePostButton from "@components/posts/DeletePostButton";
 import SetStatusButton from "@components/posts/SetStatusButton";
 import Link from "next/link";
 
@@ -20,6 +21,7 @@ async function PostPage({ params: { id } }) {
             <div>
                 <Link href={`/posts/${id}/edit`}>Edit</Link>
             </div>
+            <DeletePostButton deletePost={deletePost} postId={id} />
             <p>{post.createdAt.toString()}</p>
             <hr />
             <h3>Comments</h3>
