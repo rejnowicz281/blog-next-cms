@@ -12,11 +12,13 @@ export default async function Home() {
                 <div>
                     <h2>{post.title}</h2>
                     <p>{post.body}</p>
-                    <p>{post.status}</p>
                     <p>{post.createdAt.toString()}</p>
-                    <Link key={post.id} href={`posts/${post.id}`}>
-                        View Post
-                    </Link>
+                    <p>{post.status}</p>
+                    <div>
+                        <Link key={post.id} href={`posts/${post.id}`}>
+                            View Post
+                        </Link>
+                    </div>
                     <div>
                         <Link href={`/posts/${post.id}/edit`}>Edit Post</Link>
                     </div>

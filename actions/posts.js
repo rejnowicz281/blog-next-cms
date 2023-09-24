@@ -113,3 +113,19 @@ export async function deletePost(id) {
     console.log(data);
     redirect("/");
 }
+
+export async function deleteComment(postId, commentId) {
+    "use server";
+
+    await connectToDB();
+
+    await Comment.findByIdAndDelete(commentId);
+
+    const data = {
+        action: "deleteComment",
+        success: true,
+        commentId,
+    };
+    console.log(data);
+    revalidatePath(`posts/${postId}`);
+}
