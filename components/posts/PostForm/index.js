@@ -14,7 +14,7 @@ export default function PostForm({ action, submitContent, submittingContent, pos
             </div>
             <div>
                 <label>Status</label>
-                <select name="status" id="status" defaultValue={post?.status === "Draft" ? "Draft" : "Public"}>
+                <select name="status" id="status" defaultValue={post?.status === "Public" ? "Public" : "Draft"}>
                     <option value="Draft">Draft</option>
                     <option value="Public">Public</option>
                 </select>
