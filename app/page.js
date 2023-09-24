@@ -1,4 +1,4 @@
-import { deletePost, getPosts } from "@actions/posts";
+import { getPosts } from "@actions/posts";
 import DeletePostButton from "@components/posts/DeletePostButton";
 import Link from "next/link";
 
@@ -22,7 +22,7 @@ export default async function Home() {
                     <div>
                         <Link href={`/posts/${post.id}/edit`}>Edit Post</Link>
                     </div>
-                    <DeletePostButton deletePost={deletePost} postId={post.id} />
+                    <DeletePostButton postId={post.id} />
                     <hr />
                 </div>
             ))}

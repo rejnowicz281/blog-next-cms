@@ -1,4 +1,4 @@
-import { deleteComment, deletePost, getPost, getPostComments, setPostStatus } from "@actions/posts";
+import { getPost, getPostComments } from "@actions/posts";
 import DeleteCommentButton from "@components/posts/DeleteCommentButton";
 import DeletePostButton from "@components/posts/DeletePostButton";
 import SetStatusButton from "@components/posts/SetStatusButton";
@@ -14,15 +14,11 @@ async function PostPage({ params: { id } }) {
             <h2>{post.title}</h2>
             <p>{post.body}</p>
             <p>{post.status}</p>
-            <SetStatusButton
-                postId={id}
-                setPostStatus={setPostStatus}
-                status={post.status === "Draft" ? "Public" : "Draft"}
-            />
+            <SetStatusButton postId={id} status={post.status === "Draft" ? "Public" : "Draft"} />
             <div>
                 <Link href={`/posts/${id}/edit`}>Edit</Link>
             </div>
-            <DeletePostButton deletePost={deletePost} postId={id} />
+            <DeletePostButton postId={id} />
             <p>{post.createdAt.toString()}</p>
             <hr />
             <h3>Comments</h3>
@@ -31,7 +27,7 @@ async function PostPage({ params: { id } }) {
                     <p>{comment.author}</p>
                     <p>{comment.body}</p>
                     <p>{comment.createdAt.toString()}</p>
-                    <DeleteCommentButton deleteComment={deleteComment} postId={id} commentId={comment.id} />
+                    <DeleteCommentButton postId={id} commentId={comment.id} />
                 </div>
             ))}
         </div>

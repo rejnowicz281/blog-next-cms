@@ -1,9 +1,6 @@
-"use client";
+import { deleteComment } from "@actions/posts";
+import Main from "./Main";
 
-export default function DeleteCommentButton({ className, deleteComment, postId, commentId }) {
-    return (
-        <button className={className} onClick={async () => await deleteComment(postId, commentId)}>
-            Delete
-        </button>
-    );
+export default function DeleteCommentButton({ className, postId, commentId }) {
+    return <Main className={className} deleteComment={deleteComment} postId={postId} commentId={commentId} />;
 }
