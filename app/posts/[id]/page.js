@@ -1,4 +1,6 @@
-import { getPost, getPostComments } from "@actions/posts";
+import { getPost, getPostComments, setPostStatus } from "@actions/posts";
+import SetStatusButton from "@components/posts/SetStatusButton";
+import Link from "next/link";
 
 async function PostPage({ params: { id } }) {
     const post = await getPost(id);
@@ -10,6 +12,14 @@ async function PostPage({ params: { id } }) {
             <h2>{post.title}</h2>
             <p>{post.body}</p>
             <p>{post.status}</p>
+            <SetStatusButton
+                postId={id}
+                setPostStatus={setPostStatus}
+                status={post.status === "Draft" ? "Public" : "Draft"}
+            />
+            <div>
+                <Link href={`/posts/${id}/edit`}>Edit</Link>
+            </div>
             <p>{post.createdAt.toString()}</p>
             <hr />
             <h3>Comments</h3>

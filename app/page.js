@@ -4,8 +4,6 @@ import Link from "next/link";
 export default async function Home() {
     const posts = await getPosts();
 
-    console.log(posts);
-
     return (
         <div>
             <h1>Posts</h1>
@@ -18,6 +16,9 @@ export default async function Home() {
                     <Link key={post.id} href={`posts/${post.id}`}>
                         View Post
                     </Link>
+                    <div>
+                        <Link href={`/posts/${post.id}/edit`}>Edit Post</Link>
+                    </div>
                     <hr />
                 </div>
             ))}
