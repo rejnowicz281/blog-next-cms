@@ -1,4 +1,4 @@
-import { createPost, getPost } from "@actions/posts";
+import { getPost, updatePost } from "@actions/posts";
 import PostForm from "@components/posts/PostForm";
 
 export default async function EditPostPage({ params: { id } }) {
@@ -8,7 +8,7 @@ export default async function EditPostPage({ params: { id } }) {
         <div>
             <h1>Edit Post {id}</h1>
             <PostForm
-                action={createPost}
+                action={updatePost}
                 submitContent="Update Post"
                 submittingContent="Updating Post..."
                 post={post}
