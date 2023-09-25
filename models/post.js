@@ -4,12 +4,12 @@ const postSchema = new Schema(
     {
         title: {
             type: String,
-            required: true,
+            required: [true, "Please provide a title"],
             maxlength: 100,
         },
         body: {
             type: String,
-            required: true,
+            required: [true, "Post body is required"],
             maxlength: 10000,
         },
         status: {

@@ -1,6 +1,7 @@
 import Comment from "@models/comment";
 import Post from "@models/post";
 import { connectToDB } from "@utils/database";
+import formatValidationError from "@utils/formatValidationError";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -57,20 +58,31 @@ export async function createPost(formData) {
     const body = formData.get("body");
     const status = formData.get("status");
 
-    const post = new Post({
-        title,
-        body,
-        status,
-    });
+    try {
+        const post = new Post({
+            title,
+            body,
+            status,
+        });
 
-    await post.save();
+        await post.save();
 
-    const data = {
-        action: "createPost",
-        success: true,
-    };
-    console.log(data);
-    redirect(`/posts/${post.id}`);
+        const data = {
+            action: "createPost",
+            success: true,
+        };
+        console.log(data);
+        redirect(`/posts/${post.id}`);
+    } catch (err) {
+        const validationError = formatValidationError(err);
+        const data = {
+            action: "createPost",
+            success: false,
+            errors: validationError,
+        };
+        console.error(data);
+        return data;
+    }
 }
 
 export async function updatePost(formData) {
@@ -83,19 +95,30 @@ export async function updatePost(formData) {
     const body = formData.get("body");
     const status = formData.get("status");
 
-    await Post.findByIdAndUpdate(id, {
-        title,
-        body,
-        status,
-    });
+    try {
+        await Post.findByIdAndUpdate(id, {
+            title,
+            body,
+            status,
+        });
 
-    const data = {
-        action: "updatePost",
-        success: true,
-        postId: id,
-    };
-    console.log(data);
-    redirect(`/posts/${id}`);
+        const data = {
+            action: "updatePost",
+            success: true,
+            postId: id,
+        };
+        console.log(data);
+        redirect(`/posts/${id}`);
+    } catch (err) {
+        const validationError = formatValidationError(err);
+        const data = {
+            action: "updatePost",
+            success: false,
+            errors: validationError,
+        };
+        console.error(data);
+        return data;
+    }
 }
 
 export async function deletePost(id) {
