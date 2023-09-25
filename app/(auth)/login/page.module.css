@@ -9,6 +9,7 @@
     font-size: 20px;
     text-align: center;
     padding: 10px 20px;
+    outline: none;
 }
 
 .submit {
@@ -16,7 +17,6 @@
     padding: 10px;
     border: none;
     font-size: 15px;
-    outline: none;
     transition: 0.1s;
     background-color: #5d4fab;
     color: white;
@@ -24,7 +24,6 @@
     cursor: pointer;
     margin-bottom: 30px;
     display: block;
-    outline: none;
 }
 
 .submit:hover {
