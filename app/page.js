@@ -1,14 +1,18 @@
 import { getPosts } from "@actions/posts";
 import DeletePostButton from "@components/posts/DeletePostButton";
+import authOptions from "@utils/authOptions";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
+    const session = await getServerSession(authOptions);
     const posts = await getPosts();
 
     return (
         <div>
+            <div>Welcome, {session.user.name}</div>
             <h1>Posts</h1>
             {posts.map((post) => (
                 <div key={post.id}>

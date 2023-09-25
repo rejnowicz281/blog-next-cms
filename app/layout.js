@@ -21,6 +21,9 @@ export default function RootLayout({ children }) {
                         <li>
                             <Link href="/posts/new">New Post</Link>
                         </li>
+                        <li>
+                            <Link href="/api/auth/signout">Sign Out</Link>
+                        </li>
                     </ul>
                 </nav>
                 {children}
