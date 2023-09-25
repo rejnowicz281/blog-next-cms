@@ -3,9 +3,12 @@ import DeleteCommentButton from "@components/posts/DeleteCommentButton";
 import DeletePostButton from "@components/posts/DeletePostButton";
 import SetStatusButton from "@components/posts/SetStatusButton";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 async function PostPage({ params: { id } }) {
     const post = await getPost(id);
+    if (post === null) redirect("/");
+
     const comments = await getPostComments(id);
 
     return (
