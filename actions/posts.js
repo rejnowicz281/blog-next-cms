@@ -111,7 +111,7 @@ export async function deletePost(id) {
         postId: id,
     };
     console.log(data);
-    redirect("/");
+    revalidatePath("/");
 }
 
 export async function deleteComment(postId, commentId) {
