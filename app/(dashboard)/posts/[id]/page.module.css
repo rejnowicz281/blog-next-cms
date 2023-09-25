@@ -3,16 +3,6 @@
     margin: 50px auto 0 auto;
 }
 
-.post {
-    border-bottom: 1px solid #353535;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-.post:last-child {
-    border-bottom: none;
-}
-
 .status {
     font-weight: bold;
 }
@@ -35,6 +25,21 @@
     color: rgb(59, 101, 181);
 }
 
+.status-button {
+    border: none;
+    background-color: rgb(132, 169, 229);
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.status-button:hover {
+    background-color: rgb(176, 199, 236);
+}
+
 .delete {
     border: none;
     background-color: rgb(255, 97, 97);
@@ -47,4 +52,8 @@
 
 .delete:hover {
     background-color: rgb(250, 136, 136);
+}
+
+.author {
+    font-weight: bold;
 }

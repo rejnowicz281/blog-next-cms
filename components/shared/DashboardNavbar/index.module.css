@@ -1,0 +1,27 @@
+.nav {
+    background-color: rgb(29, 28, 36);
+    padding: 20px 40px;
+    border-bottom: 1px solid #363636;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    gap: 30px;
+}
+
+.links > a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.links > a:hover {
+    text-decoration: underline;
+}
+
+.welcome {
+    font-weight: bold;
+}
