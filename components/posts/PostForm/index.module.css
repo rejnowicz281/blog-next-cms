@@ -1,0 +1,33 @@
+.field {
+    margin: 10px 0;
+}
+
+.field > label {
+    font-weight: bold;
+}
+
+.field > input {
+    width: 100%;
+}
+
+.field > textarea {
+    width: 100%;
+}
+
+.submit {
+    border: none;
+    background-color: rgb(167, 228, 144);
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit:hover {
+    background-color: rgb(205, 224, 197);
+}
+
+.error {
+    color: rgb(255, 137, 137);
+}
