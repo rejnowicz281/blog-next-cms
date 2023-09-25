@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import css from "./page.module.css";
 
 export default function LoginPage() {
     const router = useRouter();
@@ -20,18 +21,21 @@ export default function LoginPage() {
     }
 
     return (
-        <div>
+        <div className={css.container}>
             <form onSubmit={handleSignIn}>
-                {error && <div>Invalid Password</div>}
+                {error && <div className={css.error}>Invalid Password</div>}
                 <input
+                    className={css.input}
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Enter the password"
+                    placeholder="Enter password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Sign In</button>
+                <button className={css.submit} type="submit">
+                    Login
+                </button>
             </form>
         </div>
     );
