@@ -32,6 +32,7 @@ export default function PostForm({ action, submitContent, submittingContent, pos
                     <option value="Draft">Draft</option>
                     <option value="Public">Public</option>
                 </select>
+                {errors?.status && <InputErrors errors={errors.status} />}
             </div>
             <SubmitButton submitContent={submitContent} submittingContent={submittingContent} />
         </form>
