@@ -18,6 +18,10 @@ const authOptions = {
             },
         }),
     ],
+    pages: {
+        signIn: "/login",
+        signOut: "/logout",
+    },
 };
 
 export default authOptions;
